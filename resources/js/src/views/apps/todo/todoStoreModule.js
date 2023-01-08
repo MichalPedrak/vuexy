@@ -8,9 +8,8 @@ export default {
   actions: {
     fetchTasks(ctx, payload) {
       return new Promise((resolve, reject) => {
-        console.log(ctx)
         axios
-          .get('/api/task', { params: payload })
+          .get(`/api/task/${payload.q}/${payload.sortBy}`, { params: payload })
           .then(response => resolve(response))
           .catch(error => reject(error))
       })

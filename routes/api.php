@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::apiResource('task', \App\Http\Controllers\TaskController::class);
+Route::apiResource('task/{q?}/{sortBy?}/', \App\Http\Controllers\TaskController::class);
 

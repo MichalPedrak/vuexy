@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(0, 100),
+            'user_id' => User::factory()->create(),
             'title' => $this->faker->sentence(),
             'content' => $this->faker->text(100),
             'completed' => $this->faker->numberBetween(0, 1)

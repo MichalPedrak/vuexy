@@ -265,7 +265,7 @@ export default {
     }
 
     const addTask = val => {
-      store.dispatch('/api/task', val)
+      store.dispatch('app-todo/addTask', val)
         .then(() => {
           // eslint-disable-next-line no-use-before-define
           fetchTasks()
@@ -326,6 +326,7 @@ export default {
     // eslint-disable-next-line no-use-before-define
     watch([searchQuery, sortBy], () => fetchTasks())
     const updateRouteQuery = val => {
+
       const currentRouteQuery = JSON.parse(JSON.stringify(route.value.query))
 
       if (val) currentRouteQuery.q = val
@@ -335,6 +336,13 @@ export default {
     }
 
     const fetchTasks = () => {
+      if (searchQuery.value === undefined) {
+        searchQuery.value = null
+      }
+      if (sortBy.value === undefined) {
+        sortBy.value = null
+      }
+
       store.dispatch('app-todo/fetchTasks', {
         q: searchQuery.value,
         filter: router.currentRoute.params.filter,
