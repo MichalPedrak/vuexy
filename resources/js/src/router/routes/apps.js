@@ -59,15 +59,6 @@ export default [
     },
   },
   {
-    path: '/task/add',
-    name: 'task-add',
-    component: () => import('@/views/apps/todo/TodoAdd.vue'),
-    meta: {
-      contentRenderer: 'sidebar-left',
-      contentClass: 'todo-application',
-    },
-  },
-  {
     path: '/apps/todo/:filter',
     name: 'apps-todo-filter',
     component: () => import('@/views/apps/todo/Todo.vue'),
