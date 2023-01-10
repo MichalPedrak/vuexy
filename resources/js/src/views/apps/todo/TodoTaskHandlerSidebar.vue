@@ -138,6 +138,7 @@
               >
                 <flat-pickr
                   v-model="taskLocal.dueDate"
+                  :config="{dateFormat: 'Y-m-d',}"
                   class="form-control"
                 />
                 <b-form-invalid-feedback :state="getValidationState(validationContext)">

@@ -25,7 +25,7 @@ export default {
     updateTask(ctx, { task }) {
       return new Promise((resolve, reject) => {
         axios
-          .post(`/apps/todo/tasks/${task.id}`, { task })
+          .put(`/api/task/${task.id}`, { task })
           .then(response => resolve(response))
           .catch(error => reject(error))
       })
@@ -33,7 +33,7 @@ export default {
     removeTask(ctx, { id }) {
       return new Promise((resolve, reject) => {
         axios
-          .delete(`/apps/todo/tasks/${id}`)
+          .delete(`/api/task/${id}`)
           .then(response => resolve(response))
           .catch(error => reject(error))
       })

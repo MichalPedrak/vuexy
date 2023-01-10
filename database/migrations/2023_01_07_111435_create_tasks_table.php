@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('title');
-            $table->string('content');
-            $table->tinyInteger('completed');
+            $table->string('description');
+            $table->tinyInteger('isCompleted');
+            $table->date('dueDate');
             $table->timestamps();
         });
     }
